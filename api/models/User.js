@@ -6,10 +6,6 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  password: {
-    type: String,
-    required: true
-  },
   score: {
     type: Number,
     default: 0
@@ -24,6 +20,10 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 0
       }
-  }]
+  }],
+  password: {
+    type: String,
+    required: true
+  }
 });
 
