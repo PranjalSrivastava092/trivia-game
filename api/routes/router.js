@@ -65,16 +65,15 @@ router.post('/user/login',[ check('email', 'Please enter a valid email').isEmail
 
 router.get('/game/new', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
-    console.log(user);
+    const user = await User.findById(req.user.id);
 
-    const options = {
+    const query = {
       uri: `https://opentdb.com/api.php?amount=5`,
       method: 'GET',
       headers: { 'user-agent': 'node.js' }
     };
 
-    requestModule(options, (error, response, body) => {
+    requestModule(query, (error, response, body) => {
       console.log(body);
       if (error) console.error(error);
 
@@ -103,19 +102,8 @@ router.post('/game/score', auth, async (request, response) => {
 });
 
 router.post('/game/list', auth, async (request, response) => {
-  const user = await User.findById(request.user.id).select('-password');
+  const user = await User.findById(request.user.id);
   response.status(200).send({ success: true, games: user.games });
-});
-
-router.post('/game/delete', auth, async (request, response) => {
-  const user = await User.findById(request.user.id).select('-password');
-  const game = {
-    date: Date.now(),
-    score: score
-  };
-  user.games.unshift(game);
-  await user.save();
-  response.status(200).send({ msg: 'game saved' });
 });
 
 module.exports = router;
