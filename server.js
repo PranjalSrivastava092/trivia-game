@@ -1,5 +1,4 @@
 const express = require('express');
-const config = require('config');
 const router = require('./api/routes/router');
 const cors = require('cors');
 const mongoose = require('mongoose');

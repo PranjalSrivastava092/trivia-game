@@ -1,4 +1,4 @@
-<div class="card mat-elevation-z1 bg-white">
+<div class="card">
   <div class="card-body">
     <form (ngSubmit)="submit()" #loginForm="ngForm">
 
@@ -34,7 +34,7 @@
 
       <br>
       
-      <button class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid">Login</button>
+      <button class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
   
       <br>
     </form>

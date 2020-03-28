@@ -4,11 +4,11 @@
   </div>
 
   <div *ngIf="answering">
-    {{current + 1}}. {{question}}
+    <H2>{{current + 1}}. {{question}}</H2>
 
     <br><br>
     <mat-radio-group class="row" [(ngModel)]="choice">
-      <mat-radio-button class="col-6" *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
+      <mat-radio-button class="col-12" *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
     </mat-radio-group>
     <br>
     <button class="btn btn-primary" (click)="nextQues()" [disabled]="!choice">Next</button>
