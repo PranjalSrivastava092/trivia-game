@@ -1,0 +1,42 @@
+<div class="card mat-elevation-z1 bg-white">
+  <div class="card-body">
+    <form (ngSubmit)="submit()" #loginForm="ngForm">
+
+      <br>
+
+      <h1 class="display-4 text-center">Login</h1>
+      
+      <br>
+
+      <div class="form-group">
+        <label>Email</label>
+
+        <input type="text" class="form-control" placeholder="Enter Email" [(ngModel)]="email" name="email" required #emailField="ngModel">
+        <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="text-danger">
+          <div *ngIf="emailField.errors.required">
+            Email is required.
+          </div>
+          <br>
+        </div>
+      </div>
+
+      <label>Password</label>
+
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Enter Password" [(ngModel)]="password" name="password" required #passwordField="ngModel">
+        <div *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)" class="text-danger">
+          <div *ngIf="passwordField.errors.required">
+            Password is required.
+          </div>
+          <br>
+        </div>
+      </div>
+
+      <br>
+      
+      <button class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid">Login</button>
+  
+      <br>
+    </form>
+  </div>
+</div>

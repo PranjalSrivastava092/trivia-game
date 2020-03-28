@@ -1,0 +1,13 @@
+<h2>Past Games</h2>
+<br>
+
+<div *ngIf="!list.length">
+  No Games Played
+</div>
+
+<div *ngFor="let game of list" class="mb-5 card">
+  <div class="card-body">
+    <div class="text-muted small">{{game.date | date}}</div>
+    <div>Score: {{game.score}}</div>
+  </div>
+</div>

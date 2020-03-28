@@ -1,0 +1,16 @@
+<div *ngIf="apiResponse">
+  <div *ngIf="!answering">
+    Score: {{score}}/5
+  </div>
+
+  <div *ngIf="answering">
+    {{current + 1}}. {{question}}
+
+    <br><br>
+    <mat-radio-group class="row" [(ngModel)]="choice">
+      <mat-radio-button class="col-6" *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <button class="btn btn-primary" (click)="nextQues()" [disabled]="!choice">Next</button>
+  </div>
+</div>
